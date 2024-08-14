@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
-    
-    
-    public int button1;
+   
     public static int count1;
     public float earn1 = 1;
     public static float total1;
@@ -33,10 +31,10 @@ public class Main : MonoBehaviour
     {
         if (Score.currentScore >= Score.price1)
         {
-            count1 = count1 + 1;
+            count1 += 1;
             total1 = earn1 * count1;
-            Score.currentScore = Score.currentScore - 10;
-            Score.price1 = Score.price1 * 1.1f;
+            Score.currentScore -= Score.price1;
+            Score.price1 *= 1.1f;
             Score.price1 = Mathf.Round(Score.price1);
         }
 

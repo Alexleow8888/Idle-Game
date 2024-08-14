@@ -9,11 +9,6 @@ public class NewBehaviourScript : MonoBehaviour
     public int IsRunning = 1;
     public int NumberofSeconds;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
