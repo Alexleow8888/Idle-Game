@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    public Text scoreText;
+    public Text currentmoneytxt;
     public int IsRunning = 1;
     public int NumberofSeconds;
-
+    public Text persecondtxt;
+    private float persecond;
 
     // Update is called once per frame
     void Update()
     {
+        persecond = Main.total1 + Main.total2 + Main.total3 + Main.total4 + Main.total5;
+        persecondtxt.text = persecond + " £/s";
+
         
         if (IsRunning == 1)
         {
@@ -23,8 +27,8 @@ public class NewBehaviourScript : MonoBehaviour
     {
         IsRunning = 0;
         yield return new WaitForSeconds(NumberofSeconds);
-        Score.currentScore += Main.total1;
-        scoreText.text = "Money : " + Score.currentScore;
+        Score.currentScore += Main.total1 + Main.total2 + Main.total3 + Main.total4 + Main.total5;
+        currentmoneytxt.text = "Money : £" + Score.currentScore;
         IsRunning = 1;
     }
 }
