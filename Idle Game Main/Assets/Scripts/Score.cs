@@ -1,20 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
     public static float currentScore;
-    
-    public static float price1;
 
-    public static float price2;
+    public Text currentmoneytxt;
 
-    public static float price3;
-
-    public static float price4;
-
-    public static float price5;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +19,6 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentmoneytxt.text = "Money : £" + currentScore;
     }
 }
