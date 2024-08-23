@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
 
-    private int count1;
-    private int count2;
-    private int count3;
-    private int count4;
-    private int count5;
+    public static int count1;
+    public static int count2;
+    public static int count3;
+    public static int count4;
+    public static int count5;
 
     private float earn1 = 1;
     private float earn2 = 10;
@@ -27,11 +27,11 @@ public class Main : MonoBehaviour
     private int IsRunning = 1;
     private int NumberofSeconds = 1;
 
-    private float price1 = 10f;
-    private float price2 = 100f;
-    private float price3 = 1000f;
-    private float price4 = 10000f;
-    private float price5 = 100000f;
+    public static float price1;
+    public static float price2;
+    public static float price3;
+    public static float price4;
+    public static float price5;
 
     public Text price1txt;
     public Text price2txt;
@@ -45,11 +45,11 @@ public class Main : MonoBehaviour
     public Text count4txt;
     public Text count5txt;
 
-    public float prestigeprice;
+    public static float prestigeprice;
 
     public Text prestigepricetxt;
 
-    public float multiplier = 1f;
+    public static float multiplier = 1f;
 
     public Text multipliertxt;
 
@@ -70,7 +70,13 @@ public class Main : MonoBehaviour
         price3txt.text = "Cost : £" + price3;
         price4txt.text = "Cost : £" + price4;
         price5txt.text = "Cost : £" + price5;
-        
+
+        price1 = 10f;
+        price2 = 100f;
+        price3 = 1000f;
+        price4 = 10000f;
+        price5 = 100000f;
+        prestigeprice = 1000000f;
     }
 
     // Update is called once per frame
@@ -246,6 +252,28 @@ public class Main : MonoBehaviour
         Score.currentScore += (multiplier * (total1 + total2 + total3 + total4 + total5));
         //Debug.Log("Per Second : " + persecond + " Multiplier : " + multiplier);
         IsRunning = 1;
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        count1 = data.count1;
+        count2 = data.count2;
+        count3 = data.count3;
+        count4 = data.count4;
+        count5 = data.count5;
+        price1 = data.price1;
+        price2 = data.price2;
+        price3 = data.price3;
+        price4 = data.price4;
+        price5 = data.price5;
+        prestigeprice = data.prestigeprice;
+        Score.currentScore = data.money;
+        multiplier = data.multiplier;
     }
 
 }
